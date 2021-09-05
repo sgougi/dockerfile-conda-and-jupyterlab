@@ -45,7 +45,7 @@ Host localhost-anaconda
     - ``start_anaconda`` の起動後に標準出力に表示されるログ中のURIを入力する
       - URIはふたつ表示されるが、下側の``http//127.0.0.1:8888/lab?token=XXXX``の方をコピーして入力する
   - SSH接続環境下で新たにJupyter Serverを起動してそれを利用する場合は、``Default``を選択する。
-  - ``Existing``と``Default``のどちらを利用しても良いが、こちらを利用した方がURIのコピペの必要がなく楽かも。
+  - ``Existing``と``Default``のどちらを利用しても良いが、``Default``を利用した方がURIのコピペの必要がなく楽かも。
 
 # 書籍「[Pythonで儲かるAIをつくる](https://amzn.to/3kZpi0V)」のNotebookを実行する上での覚書
 
