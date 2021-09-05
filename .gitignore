@@ -1,0 +1,6 @@
+/.venv
+/.ipynb_checkpoints
+/workdir/*.ipynb
+/workdir/*.sqlite
+/workdir/jupyterhub_cookie_secret
+/workdir/*.pid

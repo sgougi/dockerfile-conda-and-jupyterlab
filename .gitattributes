@@ -1,0 +1,7 @@
+Dockerfile	text eol=lf
+Readme.md	text eol=lf
+*.bat	text eol=crlf
+*.sh	text eol=lf
+.gitattributes text	eol=lf
+.gitignore	text eol=lf
+
