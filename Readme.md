@@ -47,7 +47,7 @@ Host localhost-anaconda
 
 # 書籍「[Pythonで儲かるAIをつくる](https://amzn.to/3kZpi0V)」のNotebookを実行する上での覚書
 
-- 書籍のための記述されGithubで公開されている「[`すべてのNotebook](https://github.com/makaishi2/profitable_ai_book_info)」が動作することを確認している。
+- 書籍のための記述されGithubで公開されている「[すべてのNotebook](https://github.com/makaishi2/profitable_ai_book_info)」が動作することを確認している。
 - Githubからダウンロードしたファイルをworkdirの下に配置することで、
   - ブラウザからJupyterLabを通して参照できる。
   - VSCodeからもRemote-SSHやJupyter拡張を通してアクセスできる。
