@@ -41,9 +41,11 @@ Host localhost-anaconda
   - このディレクトリの中のファイルにあるNotebookは、ブラウザからJupyterLabを通して参照できる。
 - ``Jupyter拡張機能``を``SSH: local-anaconda``にインストール
 - ``Ctrl+SHIFT+P``で、コマンドパレットを開いて、``Jupyter: Specify local or remote jupyter server for connections``を選択
-  - さらに``Specify the URI of an existing server``を選択し、
+  - すでに起動しているJupyter Serverを利用する場合は、``Existing``を選択し、
     - ``start_anaconda`` の起動後に標準出力に表示されるログ中のURIを入力する
       - URIはふたつ表示されるが、下側の``http//127.0.0.1:8888/lab?token=XXXX``の方をコピーして入力する
+  - SSH接続環境下で新たにJupyter Serverを起動してそれを利用する場合は、``Default``を選択する。
+  - ``Existing``と``Default``のどちらを利用しても良いが、こちらを利用した方がURIのコピペの必要がなく楽かも。
 
 # 書籍「[Pythonで儲かるAIをつくる](https://amzn.to/3kZpi0V)」のNotebookを実行する上での覚書
 
