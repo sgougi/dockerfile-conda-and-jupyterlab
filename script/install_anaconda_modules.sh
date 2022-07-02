@@ -21,7 +21,8 @@ mamba install -y  plotly graphviz \
                  opencv openpiv cython \
                  pystan fbprophet
 
-pip3 install japanize-matplotlib
-
 mamba update -y --all 
+
+pip3 install japanize-matplotlib==1.1.2
+
 
