@@ -24,7 +24,7 @@
 ここにある設定をしてVSCodeからNotebookを編集できるようにすることで、コードの編集時にintellisenseが利用可能となるだけでなく、VSCode上でJupyterが動作するためブラウザからJupyterLabにアクセスする必要もないことになる(※コードの実行には、JupyterLabのサービスを利用する)。
 
 - ~/.ssh/config に以下の設定を追加。
-  -  補足：jupyter_rsaは、``anaconda-docker/ssh_keys/``の下に存在する。そのまま利用するか、``~/.ssh``などにコピーして利用する。
+  -  補足：jupyter_rsaは、``anaconda-docker/ssh_keys/``の下に存在する。``~/.ssh``にコピーして利用する。
   - ※　jupyter_rsaに、パスフレーズは設定していない。
 ```
 Host localhost-anaconda

@@ -5,10 +5,10 @@ RUN apt-get update && apt-get install -y git less sudo curl wget unzip vim procp
     
 RUN mkdir /var/run/sshd
 RUN echo 'root:admin' | chpasswd
-RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-RUN sed -i 's/#AddressFamily any/AddressFamily any/' /etc/ssh/sshd_config
-RUN sed -i 's/#ListenAddress 0.0.0.0/ListenAddress 0.0.0.0/' /etc/ssh/sshd_config
-RUN sed -i 's/#PermitTunnel no/PermitTunnel yes/' /etc/ssh/sshd_config
+RUN echo 'PermitRootLogin yes'   >> /etc/ssh/sshd_config.d/jupyter.conf
+RUN echo 'AddressFamily any'     >> /etc/ssh/sshd_config.d/jupyter.conf
+RUN echo 'ListenAddress 0.0.0.0' >> /etc/ssh/sshd_config.d/jupyter.conf
+RUN echo 'PermitTunnel yes'      >> /etc/ssh/sshd_config.d/jupyter.conf
 
 # SSH login fix. Otherwise user is kicked off after login
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
@@ -19,8 +19,12 @@ RUN useradd -m jupyter -s /bin/bash
 RUN echo 'jupyter:jupyter' | chpasswd
 RUN usermod -aG sudo jupyter
 
-COPY ssh_keys/jupyter_rsa.pub /home/jupyter/jupyter_rsa.pub
-RUN chown jupyter.jupyter /home/jupyter/jupyter_rsa.pub
+RUN mkdir -p /home/jupyter/.ssh
+RUN chown jupyter:jupyter /home/jupyter/.ssh
+RUN chmod 700 /home/jupyter/.ssh
+COPY ssh_keys/jupyter_rsa.pub /home/jupyter/.ssh/jupyter_rsa.pub
+RUN chown jupyter.jupyter /home/jupyter/.ssh/jupyter_rsa.pub
+RUN chmod 600 /home/jupyter/.ssh/jupyter_rsa.pub
 
 RUN mkdir -p /home/jupyter/workdir
 RUN chown jupyter.jupyter /home/jupyter/workdir
