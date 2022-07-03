@@ -52,6 +52,7 @@ else
                      openpiv \
 	                 opencv \
 	                 cython \
+	                 pytube \
 	                 -c conda-forge 2>&1| grep -v "Clobberwarning"
 fi
 

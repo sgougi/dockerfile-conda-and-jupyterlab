@@ -18,7 +18,7 @@
 
 ## ブラウザからJupyterLabにアクセスする
 - ``start_container.{sh|bat}`` を起動後、端末に表示されるURIにブラウザからアクセスする。
-  - URIは、ふたつ表示されるが、下側の``http//127.0.0.1:8888/lab?token=XXXX``の方を利用する。
+  - URIは、ふたつ表示されるが、下側の``http//127.0.0.1:8888/lab``の方を利用する。
 
 ## VSCodeのRemote-SSH拡張機能を使ってJupyterLabの作業ディレクトリにあるファイルを編集する
 ここにある設定をしてVSCodeからNotebookを編集できるようにすることで、コードの編集時にintellisenseが利用可能となるだけでなく、VSCode上でJupyterが動作するためブラウザからJupyterLabにアクセスする必要もないことになる(※コードの実行には、JupyterLabのサービスを利用する)。
