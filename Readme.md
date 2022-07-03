@@ -18,7 +18,7 @@
 
 ## ブラウザからJupyterLabにアクセスする
 - ``start_container.{sh|bat}`` を起動後、端末に表示されるURIにブラウザからアクセスする。
-  - URIは、ふたつ表示されるが、下側の``http//127.0.0.1:8888/lab``の方を利用する。
+  - URIは、ふたつ表示されるが、下側の``http//127.0.0.1:8888/lab?token=jupyter``の方を利用する。
 
 ## VSCodeのRemote-SSH拡張機能を使ってJupyterLabの作業ディレクトリにあるファイルを編集する
 ここにある設定をしてVSCodeからNotebookを編集できるようにすることで、コードの編集時にintellisenseが利用可能となるだけでなく、VSCode上でJupyterが動作するためブラウザからJupyterLabにアクセスする必要もないことになる(※コードの実行には、JupyterLabのサービスを利用する)。
@@ -42,8 +42,7 @@ Host localhost-anaconda
 - ``Jupyter拡張機能``を``SSH: local-anaconda``にインストール
 - ``Ctrl+SHIFT+P``で、コマンドパレットを開いて、``Jupyter: Specify local or remote jupyter server for connections``を選択
   - すでに起動しているJupyter Serverを利用する場合は、``Existing``を選択し、
-    - ``start_anaconda`` の起動後に標準出力に表示されるログ中のURIを入力する
-      - URIはふたつ表示されるが、下側の``http//127.0.0.1:8888/lab?token=XXXX``の方をコピーして入力する
+      - ``http://127.0.0.1:8888/lab?token=jupyter``と入力する
   - SSH接続環境下で新たにJupyter Serverを起動してそれを利用する場合は、``Default``を選択する。
     - ※この``Default``の選択は、一度``Existing``で接続した後はうまく機能する(SSH接続しているlocal-anacondaの中でサービスを立ち上げる)が、そうでない場合はうまく機能しない感じ。今一つ理解できていない。
 
