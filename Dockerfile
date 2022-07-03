@@ -23,9 +23,9 @@ RUN usermod -aG sudo jupyter
 RUN mkdir -p /home/jupyter/.ssh
 RUN chown jupyter:jupyter /home/jupyter/.ssh
 RUN chmod 700 /home/jupyter/.ssh
-COPY ssh_keys/jupyter_rsa.pub /home/jupyter/.ssh/jupyter_rsa.pub
-RUN chown jupyter.jupyter /home/jupyter/.ssh/jupyter_rsa.pub
-RUN chmod 600 /home/jupyter/.ssh/jupyter_rsa.pub
+COPY ssh_keys/jupyter_rsa.pub /home/jupyter/.ssh/authorized_keys
+RUN chown jupyter.jupyter /home/jupyter/.ssh/authorized_keys
+RUN chmod 600 /home/jupyter/.ssh/authorized_keys
 
 RUN mkdir -p /home/jupyter/workdir
 RUN chown jupyter.jupyter /home/jupyter/workdir
