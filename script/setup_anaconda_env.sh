@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 
-ANACONDA3_VER="2021.05"
+PYTHON_VERSION=3.8
 
-export PATH=$PATH:/home/jupyter/.local/bin
+JUPYTER_HOME=/home/jupyter
+(
 
-######### INSTALL ANACONDA
-cd /tmp && curl -O https://repo.anaconda.com/archive/Anaconda3-${ANACONDA3_VER}-Linux-x86_64.sh
-/bin/bash /tmp/Anaconda3-${ANACONDA3_VER}-Linux-x86_64.sh -b
-rm /tmp/Anaconda3-${ANACONDA3_VER}-Linux-x86_64.sh
+	cd ${JUPYTER_HOME}
 
+	mv .bashrc .bashrc.back
 
-####
-cat << EOF >> ~/.bashrc
-. /home/jupyter/anaconda3/etc/profile.d/conda.sh
-conda activate base
-EOF
-####
-. /home/jupyter/anaconda3/etc/profile.d/conda.sh
-conda activate base
+	curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
+	./bin/micromamba shell init -s bash -p ${JUPYTER_HOME}
 
+	cat .bashrc .bashrc.back > .bashrc.new
+	mv .bashrc.new .bashrc
+
+	source .bashrc
+	micromamba activate
+	micromamba install mamba python=${PYTHON_VERSION} jupyterlab -c conda-forge
+)

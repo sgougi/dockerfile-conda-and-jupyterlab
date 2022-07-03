@@ -2,7 +2,7 @@ FROM debian:stable-slim
 
 RUN apt-get update && apt-get install -y git less sudo curl wget unzip vim procps openssh-server \
     libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 \
-    libarchive13 libxi6 libxtst6
+    libarchive13 libxi6 libxtst6 bzip2
 
 RUN mkdir /var/run/sshd
 RUN echo 'root:admin' | chpasswd

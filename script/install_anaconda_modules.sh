@@ -1,28 +1,59 @@
 #!/usr/bin/env bash
-#PYTHON_VERSION="3.8"
 
-. /home/jupyter/anaconda3/etc/profile.d/conda.sh
-conda activate base
+JUPYTER_HOME=/home/jupyter
+(
+	cd ${JUPYTER_HOME}
+	source .bashrc
+	micromamba activate
 
-############
-conda config --append channels conda-forge
-conda config --set channel_priority true
-conda config --prepend repodata_fns repodata.json
-############
+if  true ; then
 
-conda install -c conda-forge mamba
+	# Basic ML
+    pip3 install japanize-matplotlib==1.1.3
+    #	
+	micromamba install \
+                     arviz=0.11.2 \
+                     pystan=2.19.1.1 \
+                     xgboost=1.1.1 \
+                     keras=2.4.3 \
+                     tensorflow=2.4.1 \
+                     mlxtend=0.19.0 \
+                     pystan=2.19.1.1 \
+                     fbprophet=0.7.1 \
+	                 pydotplus \
+	                 autopep8 \
+	                 plotly \
+	                 graphviz \
+	                 python-graphviz \
+	                 seaborn \
+	                 -c conda-forge 2>&1| grep -v "Clobberwarning"
 
-#mamba install -y python=${PYTHON_VERSION}
+else
 
-mamba install -y  plotly graphviz \
-                 python-graphviz pydotplus autopep8 \
-                 arviz pystan xgboost \
-                 keras tensorflow mlxtend \
-                 opencv openpiv cython \
-                 pystan fbprophet
+    # Basic ML + OpenPIV
+    pip3 install japanize-matplotlib==1.1.3 opencv_contrib_python
+    #
+	micromamba install \
+                     arviz=0.11.2 \
+                     pystan=2.19.1.1 \
+                     xgboost=1.1.1 \
+                     keras=2.4.3 \
+                     tensorflow=2.4.1 \
+                     mlxtend=0.19.0 \
+                     pystan=2.19.1.1 \
+                     fbprophet=0.7.1 \
+	                 pydotplus \
+	                 autopep8 \
+	                 openpiv=0.24.1 \
+	                 plotly \
+	                 graphviz \
+	                 python-graphviz \
+	                 seaborn \
+                     openpiv \
+	                 opencv \
+	                 cython \
+	                 -c conda-forge 2>&1| grep -v "Clobberwarning"
+fi
 
-mamba update -y --all 
-
-pip3 install japanize-matplotlib==1.1.2
-
+)
 
